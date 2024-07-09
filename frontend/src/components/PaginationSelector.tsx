@@ -23,7 +23,7 @@ import {
       <Pagination>
         <PaginationContent>
           {page !== 1 && (
-            <PaginationItem>
+            <PaginationItem key="previous">
               <PaginationPrevious
                 href="#"
                 onClick={() => onPageChange(page - 1)}
@@ -32,7 +32,7 @@ import {
           )}
   
           {pageNumbers.map((number) => (
-            <PaginationItem>
+            <PaginationItem key={number}>
               <PaginationLink
                 href="#"
                 onClick={() => onPageChange(number)}
@@ -44,7 +44,7 @@ import {
           ))}
   
           {page !== pageNumbers.length && (
-            <PaginationItem>
+            <PaginationItem key="next">
               <PaginationNext href="#" onClick={() => onPageChange(page + 1)} />
             </PaginationItem>
           )}
