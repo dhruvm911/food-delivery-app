@@ -57,7 +57,8 @@ export const useCreateMyUser = () => {
         });
 
         if(!response.ok) {
-            throw new Error("Failed to create user");
+            const errorText = await response.text();
+            throw new Error(`Failed to create user: ${response.status} ${response.statusText} - ${errorText}`);
         }
     };
 
